@@ -19,6 +19,22 @@ export default function TextForm(props) {
         setText(event.target.value);
     }
 
+    const handleAlternatingClick = () => {
+        let updatedText = '';
+        for (let i=0; i<text.length; i++)
+        {
+            if (i%2 === 0)
+            {
+                updatedText += text[i].toUpperCase();
+            }
+            else
+            {
+                updatedText += text[i].toLowerCase();
+            }
+        }
+        setText(updatedText);
+    }
+
     const [text, setText] = useState('');
     // setText("new text");
     return (
@@ -30,6 +46,7 @@ export default function TextForm(props) {
             </div>
             <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
             <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
+            <button className="btn btn-primary mx-1" onClick={handleAlternatingClick}>Convert to AlTeRnAtinG TeXt</button>
         </div>
         <div className="container my-2">
             <h2>Your text summary</h2>
